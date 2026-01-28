@@ -1,0 +1,299 @@
+/* Google Fonts - Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+/* ============================================
+   PASTEL MINIMALIST PONG - Modern Redesign
+   ============================================ */
+
+:root {
+  /* Pastel Color Palette */
+  --bg-cream: #F8F6F4;
+  --bg-gradient-end: #EDE8E3;
+  --sidebar-bg: rgba(255, 255, 255, 0.85);
+  --sidebar-border: rgba(148, 180, 193, 0.3);
+
+  --text-primary: #5C6B73;
+  --text-secondary: #7D8491;
+  --text-muted: #9BA5B0;
+
+  --accent-primary: #94B4C1;
+  --accent-secondary: #A7C4BC;
+  --accent-rose: #E8B5C7;
+
+  --shadow-soft: rgba(92, 107, 115, 0.08);
+  --shadow-medium: rgba(92, 107, 115, 0.12);
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-medium: 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--bg-cream) 0%, var(--bg-gradient-end) 100%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+  padding: 1.5em;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#unsupported {
+  border: 1px solid var(--accent-rose);
+  color: var(--text-primary);
+  background-color: rgba(232, 181, 199, 0.2);
+  padding: 2em;
+  margin: 1em;
+  display: inline-block;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* ============================================
+   SIDEBAR - Glassmorphism Effect
+   ============================================ */
+
+#sidebar {
+  width: 18em;
+  height: auto;
+  min-height: 36em;
+  float: left;
+  font-size: 0.875em;
+  background: var(--sidebar-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--sidebar-border);
+  border-radius: 20px;
+  padding: 1.75em;
+  box-shadow:
+    0 4px 24px var(--shadow-soft),
+    0 1px 3px var(--shadow-medium);
+}
+
+#sidebar h2 {
+  color: var(--accent-primary);
+  text-align: center;
+  margin: 0 0 1.5em 0;
+  font-weight: 600;
+  font-size: 1.4em;
+  letter-spacing: -0.02em;
+}
+
+/* Navigation Links */
+#sidebar .parts {
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 2em;
+  text-align: right;
+}
+
+#sidebar .parts li {
+  margin-bottom: 0.5em;
+}
+
+#sidebar .parts li a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border-radius: 8px;
+  transition: all var(--transition-fast);
+}
+
+#sidebar .parts li a:visited {
+  color: var(--text-secondary);
+}
+
+#sidebar .parts li a:hover {
+  color: var(--accent-primary);
+  background: rgba(148, 180, 193, 0.1);
+  transform: translateX(-4px);
+}
+
+#sidebar .parts li a.selected {
+  color: var(--accent-secondary);
+  font-weight: 500;
+  background: rgba(167, 196, 188, 0.15);
+}
+
+#sidebar .parts li a i {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+#sidebar .parts li a.selected i {
+  color: var(--accent-secondary);
+}
+
+/* Settings Section */
+#sidebar .settings {
+  line-height: 1.5em;
+  height: auto;
+  margin-bottom: 0.75em;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5em;
+}
+
+#sidebar .settings.size {
+  /* Reserved for future size-specific styling */
+}
+
+#sidebar .settings.speed {
+  margin-bottom: 1.5em;
+}
+
+#sidebar .settings label {
+  vertical-align: middle;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 0.9em;
+  text-transform: capitalize;
+}
+
+#sidebar .settings input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 24px;
+  background: var(--text-muted);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+  margin: 0;
+}
+
+#sidebar .settings input[type="checkbox"]::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  top: 3px;
+  left: 3px;
+  transition: transform var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+#sidebar .settings input[type="checkbox"]:checked {
+  background: var(--accent-secondary);
+}
+
+#sidebar .settings input[type="checkbox"]:checked::before {
+  transform: translateX(20px);
+}
+
+#sidebar .settings select {
+  vertical-align: middle;
+  background: white;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 8px;
+  padding: 0.4em 0.8em;
+  color: var(--text-primary);
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+#sidebar .settings select:hover {
+  border-color: var(--accent-primary);
+}
+
+/* Description Section */
+#sidebar .description {
+  margin-bottom: 2em;
+  padding: 1em;
+  background: rgba(148, 180, 193, 0.08);
+  border-radius: 12px;
+}
+
+#sidebar .description p {
+  margin: 0 0 0.75em 0;
+  line-height: 1.6;
+}
+
+#sidebar .description p:last-child {
+  margin-bottom: 0;
+}
+
+#sidebar .description b {
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: rgba(148, 180, 193, 0.15);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+/* ============================================
+   GAME CANVAS
+   ============================================ */
+
+#game {
+  display: block;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px var(--shadow-medium),
+    0 2px 8px var(--shadow-soft);
+  background: linear-gradient(145deg, #2C3E50 0%, #1A252F 100%);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media screen and (min-width: 0px) {
+  #sidebar {
+    display: none;
+  }
+
+  #game {
+    display: block;
+    width: 480px;
+    height: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  #game {
+    width: 640px;
+    height: 480px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #sidebar {
+    display: block;
+  }
+
+  #game {
+    margin-left: 20em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #game {
+    width: 800px;
+    height: 600px;
+  }
+}
+
+@media screen and (min-width: 1600px) {
+  #game {
+    width: 1024px;
+    height: 768px;
+  }
+}
